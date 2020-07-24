@@ -4,9 +4,8 @@ const helmet = require('helmet');
 const session =  require("express-session")
 const KnexSessionStore = require("connect-session-knex")(session)
 
-const authenticate = require('../auth/authenticate-middleware.js');
+const authenticate = require('../auth/auth-middleware.js');
 const authRouter = require('../auth/auth-router.js');
-const jokesRouter = require('../jokes/jokes-router.js');
 const dbConfig = require("../database/dbConfig")
 
 const server = express();
