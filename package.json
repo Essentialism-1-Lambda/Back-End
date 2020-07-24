@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "server": "nodemon -r dotenv/config index.js",
     "start": "node index.js",
     "test": "jest",
     "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Essentialism-1-Lambda/Back-End"
   },
   "author": "",
   "license": "ISC",
@@ -27,5 +34,8 @@
     "cross-env": "^7.0.2",
     "jest": "^26.1.0",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
