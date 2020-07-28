@@ -17,15 +17,15 @@ router.get('/:id', validateUserId(), (req, res) => {
     res.status(200).json(req.user)
   });
 
-// router.post('/', validateUser(), (req, res, next) => {
-//     users.add(req.body)
-//       .then((user) =>{
-//         res.status(201).json(user)
-//       })
-//       .catch((error) => {
-//         next(error)
-//       })
-//   });
+router.post('/', validateUser(), (req, res, next) => {
+    users.add(req.body)
+      .then((user) =>{
+        res.status(201).json(user)
+      })
+      .catch((error) => {
+        next(error)
+      })
+  });
 
   router.delete('/:id', validateUserId(), (req, res, next) => {
     users.remove(req.params.id)

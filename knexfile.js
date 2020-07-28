@@ -18,6 +18,7 @@ module.exports = {
     connection: {
       database: 'my_db',
       user:     'username',
+      email:     'email',
       password: 'password'
     },
     pool: {
@@ -34,6 +35,7 @@ module.exports = {
     connection: {
       database: 'my_db',
       user:     'username',
+      email:     'email',
       password: 'password'
     },
     pool: {
