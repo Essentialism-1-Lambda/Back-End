@@ -22,8 +22,8 @@ router.post('/register', async (req, res, next) => {
 });
 
 router.post('/login', (req, res) => {
-  let { username, password } = req.body;
-  users.findBy({ username })
+  let { email, password } = req.body;
+  users.findBy({ email })
     .first()
     .then(user => {
       if (user && bcrypt.compare(password, user.password)) {
