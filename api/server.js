@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const session =  require("express-session")
 const KnexSessionStore = require("connect-session-knex")(session)
 
-const authenticate = require('../auth/auth-middleware.js');
+const authenticate = require('../middleware/auth-middleware.js');
 const authRouter = require('../auth/auth-router.js');
 const dbConfig = require("../database/dbConfig")
 
@@ -27,8 +27,8 @@ server.use(session({
     })
 }))
 
-server.use('/api/auth', authRouter);
-server.use('/users/users-router', authenticate);
+server.use('/api', authRouter);
+server.use('/api/users', authenticate);
 
 server.use((err, req, res, next) => {
     console.log(err)
