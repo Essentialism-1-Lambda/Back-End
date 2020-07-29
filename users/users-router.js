@@ -2,8 +2,8 @@ const express = require("express")
 const Users = require("./users-model")
 const project = require("./project-model")
 const restrict = require("../middleware/restrict")
-const {validateUserId, validateUser} = require("../middleware/validate")
-const {validateProjectId} = require("../middleware/validate")
+const {validateUserId, validateUser, validateProjectId} = require("../middleware/validate")
+
 
 const router = express.Router()
 
