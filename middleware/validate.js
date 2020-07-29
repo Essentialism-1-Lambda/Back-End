@@ -1,4 +1,5 @@
 const users = require("../users/users-model")
+const project = require("../project/project-model")
 
 function validateUserId() {
     return(req, res, next) => {
@@ -41,8 +42,28 @@ function validateUserId() {
     }
   }
 
+  function validateProjectId() {
+    return(req, res, next) => {
+      project.getByProjectId(req.params.id)
+      .then((project) => {
+        if(project){
+          req.project = project
+          next()
+        } else {
+          res.status(400).json({
+              message: "invalid project id"
+          })
+        }
+      })
+      .catch((error) => {
+        next(error)
+      })
+    }  
+  }
+
   module.exports = {
       validateUser,
-      validateUserId
+      validateUserId,
+      validateProjectId
 
   }
