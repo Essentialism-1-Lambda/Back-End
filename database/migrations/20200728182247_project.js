@@ -3,7 +3,7 @@ exports.up = function(knex) {
       project.increments();
   
       project
-        .string('project', 255)
+        .string('name', 255)
         .notNullable()
         
       project

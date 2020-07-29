@@ -1,5 +1,5 @@
 const users = require("../users/users-model")
-const project = require("../project/project-model")
+const project = require("../users/project-model")
 
 function validateUserId() {
     return(req, res, next) => {
