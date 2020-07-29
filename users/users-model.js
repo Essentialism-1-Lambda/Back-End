@@ -9,18 +9,18 @@ async function add(user) {
 }
 
 function find() {
-    return db("users").select("id", "email")
+    return db("users").select("id", "username", "email")
 }
 
 function findBy(filter){
     return db("users")
-    .select("id", "email", "password")
+    .select("id", "username", "email", "password")
     .where(filter)
 }
 
 function findById(id){
     return db("users")
-    .select("id", "email")
+    .select("id", "username", "email")
     .where({id})
     .first()
 }
