@@ -52,7 +52,7 @@ router.post('/', validateUser(), (req, res, next) => {
 
 // BEGINNING OF PROJECTS WITHIN USERS
 
-  router.get('/project', restrict(), (req, res, next) => {
+  router.get('/:id/project', restrict(), (req, res, next) => {
     project.getProject()
     .then(project => {
         res.json(project);
@@ -62,8 +62,8 @@ router.post('/', validateUser(), (req, res, next) => {
     })
 })
 
-router.get('/project/:id', (req, res, next) => {
-    project.getByProjectId(req.params.id)
+router.get('/:id/project/:projectId', (req, res, next) => {
+    project.getByProjectId(req.params.projectId)
     .then(project => {
         if(project){
             res.json(project);
@@ -78,18 +78,18 @@ router.get('/project/:id', (req, res, next) => {
     })
 })
 
-router.post('/project', (req, res, next) => {
-    project.addProject({ ...req.body, user_id: req.token.userId })
-    .then(project => {
-        res.status(201).json(project);
-    })
-    .catch(err => {
-        next(err)
-    })
-})
+// router.post('/:id/project', (req, res, next) => {
+//     project.addProject({ ...req.body, user_id: req.token.userId })
+//     .then(project => {
+//         res.status(201).json(project);
+//     })
+//     .catch(err => {
+//         next(err)
+//     })
+// })
 
-router.put('/project/:id', validateProjectId(), (req, res, next) => {
-    project.updateProject(req.params.id, req.body)
+router.put('/:id/project/:projectId', validateProjectId(), (req, res, next) => {
+    project.updateProject(req.body)
     .then((project) => {
         res.status(200).json(project)
     })
@@ -98,8 +98,8 @@ router.put('/project/:id', validateProjectId(), (req, res, next) => {
     })
 })
 
-router.delete('/project/:id', validateProjectId(), (req, res, next) => {
-    project.removeProject(req.params.id, req.body)
+router.delete('/:id/project/:projectId', validateProjectId(), (req, res, next) => {
+    project.removeProject(req.params.projectId, req.body)
     .then((project) => {
         res.status(200).json(project)
     })

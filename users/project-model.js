@@ -1,10 +1,9 @@
 const db = require("../database/dbConfig");
 
-// function getProject(){
-//     return db('project')
-//     .join('categories', 'categories.id', 'project.category_id')
-//     .select('project.*', 'categories.name as category')
-// }
+function getProject(){
+    return db('project')
+
+}
 
 function getByProjectId(id){
     return db('project')
@@ -13,7 +12,7 @@ function getByProjectId(id){
 }
 
 async function addProject(project) {
-    const category_id = await db('categories')
+    const category_id = await db('project')
       .where({ name: project.category.toLowerCase() })
       .select("id")
       .first()
@@ -42,7 +41,7 @@ function removeProject(id){
 
 
 module.exports ={
-    // getProject,
+    getProject,
     getByProjectId,
     addProject,
     updateProject,
