@@ -61,9 +61,30 @@ function validateUserId() {
     }  
   }
 
+
+  function validateValuesId() {
+    return(req, res, next) => {
+      values.getByValuesId(req.params.id)
+      .then((values) => {
+        if(values){
+          req.values = values
+          next()
+        } else {
+          res.status(400).json({
+              message: "invalid values id"
+          })
+        }
+      })
+      .catch((error) => {
+        next(error)
+      })
+    }  
+  }
+
   module.exports = {
       validateUser,
       validateUserId,
-      validateProjectId
+      validateProjectId,
+      validateValuesId
 
   }
