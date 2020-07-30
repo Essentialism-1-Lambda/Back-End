@@ -8,7 +8,7 @@ const restrict = require("../middleware/restrict");
 const usersRouter = require("../users/users-router");
 const authRouter = require('../auth/auth-router.js');
 const dbConfig = require("../database/dbConfig")
-
+const valuesRouter =require("../users/values-router")
 const server = express();
 
 server.use(helmet());
@@ -30,7 +30,7 @@ server.use(session({
 
 server.use('/api', authRouter);
 server.use("/api/users", restrict(), usersRouter);
-
+server.use("/api/values", valuesRouter)
 server.use((err, req, res, next) => {
     console.log(err)
     res.status(500).json({
