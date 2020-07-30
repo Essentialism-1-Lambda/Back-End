@@ -111,15 +111,15 @@ router.delete('/:id/project/:projectId', validateProjectId(), (req, res, next) =
 
 // Beginning of Values End points
 
-router.get('/values', restrict(), (req, res, next) => {
-  values.getValues()
-  .then(values => {
-      res.json(values);
-  })
-  .catch(err => {
-      next(err)
-  })
-})
+// router.get('/values', (req, res, next) => {
+//   values.getValues()
+//   .then(values => {
+//       res.json(values);
+//   })
+//   .catch(err => {
+//       next(err)
+//   })
+// })
 
 router.get('/:id/values/:valuesId', (req, res, next) => {
   values.getByValuesId(req.params.valuesId)
