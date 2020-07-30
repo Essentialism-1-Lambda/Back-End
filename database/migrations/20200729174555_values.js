@@ -6,9 +6,9 @@ exports.up = function(knex) {
         .string('name', 255)
         .notNullable()
         
-      values
-        .string('details', 255)
-        .notNullable()
+      // values
+      //   .string('details', 255)
+      //   .notNullable()
         
     });
   };
