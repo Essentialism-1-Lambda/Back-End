@@ -37,7 +37,7 @@ describe("api integration tests", () => {
     })
 
     // it("POST /login SHOULD SUCCEED", async () => {
-    //     const data = {email: "vo@vo.com", password: "abc"}
+    //     const data = {email: "vo@vo.com", password: "abc123"}
     //     const res = await supertest(server).post("/api/login").send(data)
     //     expect(res.statusCode).toBe(200)
     //     expect(res.type).toBe("application/json")
