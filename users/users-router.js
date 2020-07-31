@@ -78,15 +78,16 @@ router.get('/:id/project/:projectId', (req, res, next) => {
     })
 })
 
-// router.post('/:id/project', (req, res, next) => {
-//     project.addProject({ ...req.body, user_id: req.token.userId })
-//     .then(project => {
-//         res.status(201).json(project);
-//     })
-//     .catch(err => {
-//         next(err)
-//     })
-// })
+router.post('/:id/project', (req, res, next) => {
+    project.addProject({ ...req.body })
+    .then(project => {
+        res.status(201).json(project);
+    })
+    .catch(err => {
+      console.log(err)
+        next(err)
+    })
+})
 
 router.put('/:id/project/:projectId', validateProjectId(), (req, res, next) => {
     project.updateProject(req.body)
@@ -138,7 +139,7 @@ router.get('/:id/values/:valuesId', (req, res, next) => {
 })
 
 // router.post('/:id/values', (req, res, next) => {
-//     values.addValues({ ...req.body, user_id: req.token.userId })
+//     values.addValues({ ...req.body})
 //     .then(values => {
 //         res.status(201).json(values);
 //     })
