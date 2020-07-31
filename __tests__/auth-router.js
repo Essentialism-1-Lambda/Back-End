@@ -12,42 +12,42 @@ afterAll(async () => {
 
 })
 
-// describe("api integration tests", () => {
-//     it("POST /register SHOULD SUCCEED", async () =>{
-//         const data = {
-//             email: "test1@test.com",
-//             username: "test1",
-//             password: "abc123"
-//        }
-//        const res = await supertest(server).post("/api/register").send(data)
-//        expect(res.statusCode).toBe(201)
-//        expect(res.type).toBe("application/json")
-//        expect(res.body.username).toBe("test")
-//     })
+describe("api integration tests", () => {
+    it("POST /register SHOULD SUCCEED", async () =>{
+        const data = {
+            email: "vo@vo.com",
+            username: "vospader",
+            password: "abc123"
+       }
+       const res = await supertest(server).post("/api/register").send(data)
+       expect(res.statusCode).toBe(201)
+       expect(res.type).toBe("application/json")
+       expect(res.body.username).toBe("vospader")
+    })
 
-    // it("POST /register SHOULD FAIL", async () =>{
-    //     const data = {
-    //     email: "test@test.com",
-    //     username: "test",
-    //     password: "abc123"
-    //    }
-    //    const res = await supertest(server).post("/api/register").send(data)
-    //    expect(res.statusCode).toBe(409)
+    it("POST /register SHOULD FAIL", async () =>{
+        const data = {
+            email: "vo@vo.com",
+            username: "vospader",
+            password: "abc123"
+       }
+       const res = await supertest(server).post("/api/register").send(data)
+       expect(res.statusCode).toBe(409)
        
-    // })
+    })
 
     // it("POST /login SHOULD SUCCEED", async () => {
-    //     const data = {email: "test1@test.com", password: "abc123"}
+    //     const data = {email: "vo@vo.com", password: "abc"}
     //     const res = await supertest(server).post("/api/login").send(data)
     //     expect(res.statusCode).toBe(200)
     //     expect(res.type).toBe("application/json")
     // })
 
-    // it("POST /login SHOULD FAIL", async () => {
-    //     const data = {email: "test1@test.com", password: "abc"}
-    //     const res = await supertest(server).post("/api/login").send(data)
-    //     expect(res.statusCode).toBe(401)
-    //     expect(res.type).toBe("application/json")
-    // })
+    it("POST /login SHOULD FAIL", async () => {
+        const data = {email: "vo@vo.com", password: "abc"}
+        const res = await supertest(server).post("/api/login").send(data)
+        expect(res.statusCode).toBe(401)
+        expect(res.type).toBe("application/json")
+    })
 
-// })
+})
